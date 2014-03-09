@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace inwentaryzator
 {
-    public partial class Form1 : Form
+    public partial class Logowanie : Form
     {
-        public Form1()
+             
+        public Logowanie()
         {
             InitializeComponent();
+        }
+
+        private void button_login_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
