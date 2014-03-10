@@ -18,7 +18,7 @@ Wymagania:
 
 MW
 
-Jako pracownik magazynu mogę tylko zmniejszać ilość produktów.
+Jako pracownik magazynu mogę tylko edytować ilość produktów.
 
 Jako kierownik magazynu mogę edytować dane o produkcie.
 
