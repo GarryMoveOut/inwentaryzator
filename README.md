@@ -16,22 +16,30 @@ Język programowania: C#
 
 Wymagania:
 
-Jako pracownik magazynu mogę dodawać ilość produktów
+MW
 
-Jako pracownik magazynu mogę usuwać ilość produktów
+Jako pracownik magazynu mogę tylko zmniejszać ilość produktów.
 
-Jako pracownik magazynu mogę edytować ilość produktów
+Jako kierownik magazynu mogę edytować dane o produkcie.
 
-Jako kierownik magazynu mogę dodawać dane o produkcie
+Jako kierownik magazynu mogę dodawać produkt.
 
-Jako kierownik magazynu mogę usuwać dane o produkcie
+Jako kierownik magazynu mogę usuwać produkt. 
 
-Jako kierownik magazynu mogę edytować dane o produkcie
+Jako kierownik magazynu mogę dodać konto pracownika magazynu, wraz z danymi pracownika.
 
-Jako kierownik magazynu mogę dodać pracownika magazynu
+DR
 
-Jako kierownik magazynu mogę usuwać pracownika magazynu
+Jako kierownik magazynu mogę usunąć konto pracownika magazynu.
 
-Jako kierownik magazynu mogę edytować pracownika magazynu
+Jako kierownik magazynu mogę edytować dane konta pracownika magazynu.
 
-Jako właściciel magazynu mogę tworzyć raport o produktach
+Jako właściciel magazynu mogę wyświetlić raport o wszystkich produktach.
+
+Jako właściciel magazynu mogę wyświetlić raport o brakujących produktach w magazynie.
+
+Jako właściciel magazynu mogę wyświetlić raport spis pracowników.
+
+Jako kierownik magazynu mogę eksportować raport do pliku xml 
+
+
