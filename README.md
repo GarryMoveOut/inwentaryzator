@@ -40,6 +40,6 @@ Jako właściciel magazynu mogę wyświetlić raport o brakujących produktach w
 
 Jako właściciel magazynu mogę wyświetlić raport spis pracowników.
 
-Jako kierownik magazynu mogę eksportować raport do pliku xml 
+Jako właściciel magazynu mogę eksportować raport do pliku xml 
 
 
