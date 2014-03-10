@@ -30,8 +30,8 @@
         {
             this.button_login = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textbox_login = new System.Windows.Forms.TextBox();
+            this.textbox_haslo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,21 +57,21 @@
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textbox_login
             // 
-            this.textBox1.Location = new System.Drawing.Point(108, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 20);
-            this.textBox1.TabIndex = 2;
+            this.textbox_login.Location = new System.Drawing.Point(108, 45);
+            this.textbox_login.Name = "textbox_login";
+            this.textbox_login.Size = new System.Drawing.Size(125, 20);
+            this.textbox_login.TabIndex = 2;
             // 
-            // textBox2
+            // textbox_haslo
             // 
-            this.textBox2.Location = new System.Drawing.Point(108, 80);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(125, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.textbox_haslo.Location = new System.Drawing.Point(108, 80);
+            this.textbox_haslo.Name = "textbox_haslo";
+            this.textbox_haslo.PasswordChar = '*';
+            this.textbox_haslo.Size = new System.Drawing.Size(125, 20);
+            this.textbox_haslo.TabIndex = 3;
+            this.textbox_haslo.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -120,8 +120,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textbox_haslo);
+            this.Controls.Add(this.textbox_login);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button_login);
             this.MaximizeBox = false;
@@ -136,8 +136,8 @@
 
         private System.Windows.Forms.Button button_login;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textbox_login;
+        private System.Windows.Forms.TextBox textbox_haslo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
