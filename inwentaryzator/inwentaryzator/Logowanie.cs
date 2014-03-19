@@ -18,6 +18,7 @@ namespace inwentaryzator
     {
         string login = @"inwentaryzator\\login.txt";
         string haslo = File.ReadAllText(@"inwentaryzator\\haslo.txt");
+        string uprawnienia = File.ReadAllText(@"inwentaryzator\\uprawnienia.txt");
         
         //login wczytany z textbox_login
         string wlogin;
@@ -33,22 +34,27 @@ namespace inwentaryzator
         public Logowanie()
         {
             InitializeComponent();
+
         }
 
         private void button_login_Click(object sender, EventArgs e)
         {
             wlogin = textbox_login.Text;
             whaslo = textbox_haslo.Text;
+            licznik = 0;
             
             //podzielenie pliku z hasłami na linie 
             string[] linia = Regex.Split(haslo, "\r\n");
 
+            //wczytanie loginów z pliku i sprawdzenie czy jest w bazie
             using (StreamReader blogin = File.OpenText(login))
             {
+                //zmienna tymczasowa do porównywania loginów z bazy
                 string slogin;
 
                 while ((slogin = blogin.ReadLine()) != null)
                 {
+                    //sprawdzanie czy login jest w bazie
                     if (slogin == wlogin)
                     {
                         z_login = true;
@@ -58,12 +64,6 @@ namespace inwentaryzator
                 }
             }
 
-            //using (StreamReader bhaslo = File.OpenText(haslo))
-            //{
-              //  string shaslo;
-
-              //  while ((shaslo = bhaslo.ReadLine()) != null)
-              //  { string linia34 = linie[33];
             if (z_login == true)
             {
                 //wczytanie lini odpowiadającej loginowi
@@ -73,9 +73,6 @@ namespace inwentaryzator
                     z_haslo = true;
                 }
             }
-            
-            //    }
-           // }
 
             if (z_login == true && z_haslo == true)
             {
@@ -83,7 +80,7 @@ namespace inwentaryzator
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Błędny login lub hasło!");
             }
         }
     }

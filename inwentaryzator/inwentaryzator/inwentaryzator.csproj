@@ -50,10 +50,19 @@
     <Compile Include="Logowanie.Designer.cs">
       <DependentUpon>Logowanie.cs</DependentUpon>
     </Compile>
+    <Compile Include="pracownik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pracownik.Designer.cs">
+      <DependentUpon>pracownik.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Logowanie.resx">
       <DependentUpon>Logowanie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pracownik.resx">
+      <DependentUpon>pracownik.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
