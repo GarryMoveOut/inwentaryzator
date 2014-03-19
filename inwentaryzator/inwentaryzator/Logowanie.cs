@@ -34,14 +34,16 @@ namespace inwentaryzator
         public Logowanie()
         {
             InitializeComponent();
-
         }
 
         private void button_login_Click(object sender, EventArgs e)
         {
             wlogin = textbox_login.Text;
             whaslo = textbox_haslo.Text;
+            //zerowanie
             licznik = 0;
+            z_login = false;
+            z_haslo = false;
             
             //podzielenie pliku z hasłami na linie 
             string[] linia = Regex.Split(haslo, "\r\n");
@@ -76,11 +78,31 @@ namespace inwentaryzator
 
             if (z_login == true && z_haslo == true)
             {
-                MessageBox.Show("Zalogowano");
+                string[] linia_uprawnienia = Regex.Split(uprawnienia, "\r\n");
+                string poziom_uprawnien = linia_uprawnienia[licznik];
+                
+                if(poziom_uprawnien=="p")
+                {
+                    //utworzenie i otwarcie okan pracownika
+                    pracownik a = new pracownik();
+                    a.ShowDialog();
+                }
+                if (poziom_uprawnien == "k")
+                {
+                    MessageBox.Show("Kierownik");
+                }
+                if (poziom_uprawnien == "w")
+                {
+                    MessageBox.Show("Właściciel");
+                }
+                if(poziom_uprawnien!="p" && poziom_uprawnien!="k" && poziom_uprawnien!="w")
+                {
+                    MessageBox.Show("Błąd programu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
             else
             {
-                MessageBox.Show("Błędny login lub hasło!");
+               MessageBox.Show("Błędny login lub hasło!", "Odmowa dostępu", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
     }
