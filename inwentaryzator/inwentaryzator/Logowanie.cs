@@ -16,9 +16,9 @@ namespace inwentaryzator
 {
     public partial class Logowanie : Form
     {
-        string login = @"inwentaryzator\\login.txt";
-        string haslo = File.ReadAllText(@"inwentaryzator\\haslo.txt");
-        string uprawnienia = File.ReadAllText(@"inwentaryzator\\uprawnienia.txt");
+        string login = @".\inwentaryzator\\users\\login.txt";
+        string haslo = File.ReadAllText(@".\inwentaryzator\\users\\haslo.txt");
+        string uprawnienia = File.ReadAllText(@".\inwentaryzator\\users\\uprawnienia.txt");
         
         //login wczytany z textbox_login
         string wlogin;

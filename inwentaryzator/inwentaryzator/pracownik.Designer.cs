@@ -38,7 +38,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.opis_textBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.but_wyszukaj = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.wyloguj = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -130,14 +130,15 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Opis: ";
             // 
-            // button1
+            // but_wyszukaj
             // 
-            this.button1.Location = new System.Drawing.Point(158, 331);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Wyszukaj";
-            this.button1.UseVisualStyleBackColor = true;
+            this.but_wyszukaj.Location = new System.Drawing.Point(158, 331);
+            this.but_wyszukaj.Name = "but_wyszukaj";
+            this.but_wyszukaj.Size = new System.Drawing.Size(75, 23);
+            this.but_wyszukaj.TabIndex = 9;
+            this.but_wyszukaj.Text = "Wyszukaj";
+            this.but_wyszukaj.UseVisualStyleBackColor = true;
+            this.but_wyszukaj.Click += new System.EventHandler(this.but_wyszukaj_Click);
             // 
             // button2
             // 
@@ -165,7 +166,7 @@
             this.ClientSize = new System.Drawing.Size(549, 382);
             this.Controls.Add(this.wyloguj);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.but_wyszukaj);
             this.Controls.Add(this.opis_textBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.nazwa_textBox);
@@ -197,7 +198,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox opis_textBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button but_wyszukaj;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button wyloguj;
     }
