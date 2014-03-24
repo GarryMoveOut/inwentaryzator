@@ -1,0 +1,42 @@
+Inwentaryzator
+In¿ynieria oprogramowania
+
+Maria Wypyska, Damian Rychliñski gr. 212B
+
+Aplikacja dla magazynu
+
+System operacyjny: Microsoft Windows
+
+Interfejs: Windows Forms
+
+Jêzyk programowania: C#
+
+Œrodowisko IDE: Microsoft Visual Studio 2013
+
+Wymagania:
+
+MW
+
+Jako pracownik magazynu mogê tylko edytowaæ iloœæ produktów.
+
+Jako kierownik magazynu mogê edytowaæ dane o produkcie.
+
+Jako kierownik magazynu mogê dodawaæ produkt.
+
+Jako kierownik magazynu mogê usuwaæ produkt.
+
+Jako kierownik magazynu mogê dodaæ konto pracownika magazynu, wraz z danymi pracownika.
+
+DR
+
+Jako kierownik magazynu mogê usun¹æ konto pracownika magazynu.
+
+Jako kierownik magazynu mogê edytowaæ dane konta pracownika magazynu.
+
+Jako w³aœciciel magazynu mogê wyœwietliæ raport o wszystkich produktach.
+
+Jako w³aœciciel magazynu mogê wyœwietliæ raport o brakuj¹cych produktach w magazynie.
+
+Jako w³aœciciel magazynu mogê wyœwietliæ raport spis pracowników.
+
+Jako w³aœciciel magazynu mogê eksportowaæ raport do pliku xml
