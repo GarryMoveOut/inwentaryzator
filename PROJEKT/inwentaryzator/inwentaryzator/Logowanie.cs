@@ -45,25 +45,32 @@ namespace inwentaryzator
             z_login = false;
             z_haslo = false;
             
-            //podzielenie pliku z hasłami na linie 
-            string[] linia = Regex.Split(haslo, "\r\n");
-
-            //wczytanie loginów z pliku i sprawdzenie czy jest w bazie
-            using (StreamReader blogin = File.OpenText(login))
+                //podzielenie pliku z hasłami na linie 
+                string[] linia = Regex.Split(haslo, "\r\n");
+            
+            try
             {
-                //zmienna tymczasowa do porównywania loginów z bazy
-                string slogin;
-
-                while ((slogin = blogin.ReadLine()) != null)
+                //wczytanie loginów z pliku i sprawdzenie czy jest w bazie
+                using (StreamReader blogin = File.OpenText(login))
                 {
-                    //sprawdzanie czy login jest w bazie
-                    if (slogin == wlogin)
+                    //zmienna tymczasowa do porównywania loginów z bazy
+                    string slogin;
+
+                    while ((slogin = blogin.ReadLine()) != null)
                     {
-                        z_login = true;
-                        break;
+                        //sprawdzanie czy login jest w bazie
+                        if (slogin == wlogin)
+                        {
+                            z_login = true;
+                            break;
+                        }
+                        licznik++;
                     }
-                    licznik++;
                 }
+            }
+            catch
+            {
+                MessageBox.Show("Błąd programu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             if (z_login == true)
