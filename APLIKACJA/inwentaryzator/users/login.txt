@@ -1,0 +1,3 @@
+pracownik
+kierownik
+wlasciciel

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Lista produktów-->
+<!--CENY MUSZĄ BYĆ Z PRZECINKIEM-->
+<PRODUKTY>
+  <PRODUKT EAN13="4789632487123">
+    <NAZWA>Nazwa testowa</NAZWA>
+    <OPIS>Jest to rekord testowy</OPIS>
+    <ILOSC>14</ILOSC>
+    <CENA>13,59</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4786214789321">
+    <NAZWA>Zeszyt A5 60s k</NAZWA>
+    <OPIS>Zeszyt formatu A5 w kratkę 60 stron</OPIS>
+    <ILOSC>2</ILOSC>
+    <CENA>2,5</CENA>
+  </PRODUKT>
+</PRODUKTY>
+  
