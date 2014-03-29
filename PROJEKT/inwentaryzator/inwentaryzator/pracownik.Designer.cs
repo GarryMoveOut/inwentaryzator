@@ -81,6 +81,7 @@
             // 
             this.cena_textBox.Location = new System.Drawing.Point(79, 84);
             this.cena_textBox.Name = "cena_textBox";
+            this.cena_textBox.ReadOnly = true;
             this.cena_textBox.Size = new System.Drawing.Size(55, 20);
             this.cena_textBox.TabIndex = 3;
             // 
@@ -98,6 +99,7 @@
             // 
             this.nazwa_textBox.Location = new System.Drawing.Point(79, 116);
             this.nazwa_textBox.Name = "nazwa_textBox";
+            this.nazwa_textBox.ReadOnly = true;
             this.nazwa_textBox.Size = new System.Drawing.Size(416, 20);
             this.nazwa_textBox.TabIndex = 4;
             // 
@@ -116,6 +118,7 @@
             this.opis_textBox.Location = new System.Drawing.Point(79, 157);
             this.opis_textBox.Multiline = true;
             this.opis_textBox.Name = "opis_textBox";
+            this.opis_textBox.ReadOnly = true;
             this.opis_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.opis_textBox.Size = new System.Drawing.Size(434, 152);
             this.opis_textBox.TabIndex = 5;

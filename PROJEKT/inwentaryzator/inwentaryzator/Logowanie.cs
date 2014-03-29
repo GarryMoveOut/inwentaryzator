@@ -1,5 +1,4 @@
-﻿// compile with: /doc:DocFileName.xml 
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,25 +10,23 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions; //potrzebne do split regex
 
 using System.IO; //odpowiada za manipulacje na plikach
+using System.Xml.Linq;
 
 namespace inwentaryzator
 {
     public partial class Logowanie : Form
     {
-        string login = @".\inwentaryzator\\users\\login.txt";
-        string haslo = File.ReadAllText(@".\inwentaryzator\\users\\haslo.txt");
-        string uprawnienia = File.ReadAllText(@".\inwentaryzator\\users\\uprawnienia.txt");
-        
-        //login wczytany z textbox_login
-        string wlogin;
-        //hasło wczytane z textbox_haslo
-        string whaslo;
-        //czy login znaleziono w pliku
-        bool z_login = false;
-        //czy hasło znaleziono w pliku
-        bool z_haslo = false;
-        //licznik wczytanych linii z pliku z hasłami
-        int licznik=0;
+        //Położenie pliku XML z produktami
+        //public string uzyt = @".\inwentaryzator\\data\\uzytkownicy.xml";
+        //wczytanie bazy z pliku
+        //public XDocument uzytkownicy = XDocument.Load(@".\inwentaryzator\\data\\uzytkownicy.xml");
+
+        //szukany login i haslo
+        public string szLogin;
+        public string szHaslo;
+
+        //czy znaleziono
+        public bool znaleziono;
 
         public Logowanie()
         {
@@ -38,79 +35,77 @@ namespace inwentaryzator
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            wlogin = textbox_login.Text;
-            whaslo = textbox_haslo.Text;
-            //zerowanie
-            licznik = 0;
-            z_login = false;
-            z_haslo = false;
-            
-                //podzielenie pliku z hasłami na linie 
-                string[] linia = Regex.Split(haslo, "\r\n");
-            
-            try
-            {
-                //wczytanie loginów z pliku i sprawdzenie czy jest w bazie
-                using (StreamReader blogin = File.OpenText(login))
-                {
-                    //zmienna tymczasowa do porównywania loginów z bazy
-                    string slogin;
+            //resetowanie
+            znaleziono = false;
+            //lista obiektów klasy Produkt
+            List<cPracownik> l_pracownikow = (
+                    from oPracownik in (XDocument.Load(@".\inwentaryzator\\data\\uzytkownicy.xml")).Root.Elements("UZYTKOWNIK")
+                    select new cPracownik(
+                        oPracownik.Element("IMIE").Value,
+                        oPracownik.Element("NAZWISKO").Value,
+                        oPracownik.Attribute("LOGIN").Value,
+                        oPracownik.Element("HASLO").Value,
+                        oPracownik.Element("UPRAWNIENIA").Value,
+                        oPracownik.Element("INFORMACJE").Value)
+                    ).ToList<cPracownik>();
 
-                    while ((slogin = blogin.ReadLine()) != null)
+            szLogin = textbox_login.Text;
+            szHaslo = textbox_haslo.Text;
+
+            //sprawdzanie czy login istnieje w bazie
+            foreach (cPracownik oPracownik in l_pracownikow)
+            {
+                if (oPracownik.login == szLogin && oPracownik.haslo == szHaslo)
+                {
+                    znaleziono = true;
+                    switch (oPracownik.uprawnienia)
                     {
-                        //sprawdzanie czy login jest w bazie
-                        if (slogin == wlogin)
-                        {
-                            z_login = true;
+                        case "pracownik":
+                            pracownik a = new pracownik();
+                            a.ShowDialog();
+                            textbox_login.Text = null;
+                            textbox_haslo.Text = null;
                             break;
-                        }
-                        licznik++;
+                        case "kierownik":
+                            MessageBox.Show("Kierownik");
+                            textbox_login.Text = null;
+                            textbox_haslo.Text = null;
+                            break;
+                        case "wlasciciel":
+                            MessageBox.Show("Wlasciciel");
+                            textbox_login.Text = null;
+                            textbox_haslo.Text = null;
+                            break;
+                        default:
+                            MessageBox.Show("Błąd wczytania pliku", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            break;
                     }
                 }
             }
-            catch
-            {
-                MessageBox.Show("Błąd programu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
 
-            if (z_login == true)
+            if (znaleziono == false)
             {
-                //wczytanie lini odpowiadającej loginowi
-                string poprawne_haslo = linia[licznik];
-                if (poprawne_haslo == whaslo)
-                {
-                    z_haslo = true;
-                }
+                MessageBox.Show("Błędne hasło lub login", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+    }
+    public class cPracownik
+    {
+        public string imie { get; set; }
+        public string nazwisko { get; set; }
+        public string login { get; set; }
+        public string haslo { get; set; }
+        public string uprawnienia { get; set; }
+        public string informacje { get; set; }
 
-            if (z_login == true && z_haslo == true)
-            {
-                string[] linia_uprawnienia = Regex.Split(uprawnienia, "\r\n");
-                string poziom_uprawnien = linia_uprawnienia[licznik];
-                
-                if(poziom_uprawnien=="p")
-                {
-                    //utworzenie i otwarcie okan pracownika
-                    pracownik a = new pracownik();
-                    a.ShowDialog();
-                }
-                if (poziom_uprawnien == "k")
-                {
-                    MessageBox.Show("Kierownik");
-                }
-                if (poziom_uprawnien == "w")
-                {
-                    MessageBox.Show("Właściciel");
-                }
-                if(poziom_uprawnien!="p" && poziom_uprawnien!="k" && poziom_uprawnien!="w")
-                {
-                    MessageBox.Show("Błąd programu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            else
-            {
-               MessageBox.Show("Błędny login lub hasło!", "Odmowa dostępu", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-            }
+        public cPracownik(string _imie, string _nazwisko, string _login, string _haslo, string _uprawnienia, string _informacje)
+        {
+            imie = _imie;
+            nazwisko = _nazwisko;
+            login = _login;
+            haslo = _haslo;
+            uprawnienia = _uprawnienia;
+            informacje = _informacje;
         }
     }
 }
