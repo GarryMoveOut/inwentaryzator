@@ -125,6 +125,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button_login);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Logowanie";
             this.Text = "Inwentaryzator";
             this.ResumeLayout(false);
