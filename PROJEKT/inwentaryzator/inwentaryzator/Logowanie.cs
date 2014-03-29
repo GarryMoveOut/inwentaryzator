@@ -67,7 +67,8 @@ namespace inwentaryzator
                             textbox_haslo.Text = null;
                             break;
                         case "kierownik":
-                            MessageBox.Show("Kierownik");
+                            wKierownik b = new wKierownik();
+                            b.ShowDialog();
                             textbox_login.Text = null;
                             textbox_haslo.Text = null;
                             break;

@@ -19,7 +19,8 @@ namespace inwentaryzator
 
         private void but_edt_pracownikow_Click(object sender, EventArgs e)
         {
-
+            KedtPrac a = new KedtPrac();
+            a.ShowDialog();
         }
 
         private void but_edt_prod_Click(object sender, EventArgs e)
