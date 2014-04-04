@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cPracownik.cs" />
+    <Compile Include="cProdukt.cs" />
     <Compile Include="KedtPrac.cs">
       <SubType>Form</SubType>
     </Compile>

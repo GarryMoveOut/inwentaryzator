@@ -26,16 +26,16 @@ namespace inwentaryzator
         //wczytanie bazy z pliku
         public XDocument xml = XDocument.Load(@".\inwentaryzator\\data\\baza.xml");
         //lista obiektów klasy Produkt
-        List<Produkt> lista_produktow = (
+        List<cProdukt> lista_produktow = (
                 from produkt in (XDocument.Load(@".\inwentaryzator\\data\\baza.xml")).Root.Elements("PRODUKT")
-                select new Produkt(
+                select new cProdukt(
                     produkt.Attribute("EAN13").Value,
                     produkt.Element("NAZWA").Value,
                     produkt.Element("OPIS").Value,
                     int.Parse(produkt.Element("ILOSC").Value),
                     float.Parse(produkt.Element("CENA").Value)
                     )
-                ).ToList<Produkt>();
+                ).ToList<cProdukt>();
         
         
 
@@ -57,26 +57,24 @@ namespace inwentaryzator
         /// <param name="e"></param>
         private void but_wyszukaj_Click(object sender, EventArgs e)
         {
-            
-
             //wczytanie danych do listy
-            List<Produkt> lista_produktow = (
+            List<cProdukt> lista_produktow = (
                 from produkt in xml.Root.Elements("PRODUKT")
-                select new Produkt(
+                select new cProdukt(
                     produkt.Attribute("EAN13").Value,
                     produkt.Element("NAZWA").Value,
                     produkt.Element("OPIS").Value,
                     int.Parse(produkt.Element("ILOSC").Value),
                     float.Parse(produkt.Element("CENA").Value)
                     )
-                ).ToList<Produkt>();
+                ).ToList<cProdukt>();
 
             try
             {
                 //Wyszukiwanie po ean
                 find_ean = ean_textBox.Text;
 
-                Produkt o_produkt = lista_produktow.Find(oElement => oElement.EAN13 == find_ean);
+                cProdukt o_produkt = lista_produktow.Find(oElement => oElement.EAN13 == find_ean);
                 //ean_textBox.Text = o_produkt.EAN13;
                 ilosc_textBox.Text = Convert.ToString(o_produkt.Ilosc);
                 cena_textBox.Text = Convert.ToString(o_produkt.Cena);
@@ -148,28 +146,5 @@ namespace inwentaryzator
                 }
             }
         }
-    }
-    
-    /// <summary>
-    /// Klasa produktów
-    /// </summary>
-    public class Produkt
-    {
-        public string EAN13 { get; set; }
-        public string Nazwa { get; set; }
-        public string Opis { get; set; }
-        public int Ilosc { get; set; }
-        public float Cena { get; set; }
-
-        //Konstruktor
-        public Produkt(string kod, string nazwa, string opis, int ilosc, float cena)
-        {
-            EAN13 = kod;
-            Nazwa = nazwa;
-            Opis = opis;
-            Ilosc = ilosc;
-            Cena = cena;
-        }
-
     }
 }
