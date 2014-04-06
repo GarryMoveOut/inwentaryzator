@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ComboBox combobox_Uprawnienia;
+            this.cbox_Uprawnienia = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtbox_Imie = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,18 +45,19 @@
             this.usun_but = new System.Windows.Forms.Button();
             this.wyszukaj_but = new System.Windows.Forms.Button();
             this.zapisz_but = new System.Windows.Forms.Button();
-            combobox_Uprawnienia = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // combobox_Uprawnienia
+            // cbox_Uprawnienia
             // 
-            combobox_Uprawnienia.Cursor = System.Windows.Forms.Cursors.Default;
-            combobox_Uprawnienia.FormattingEnabled = true;
-            combobox_Uprawnienia.Location = new System.Drawing.Point(187, 127);
-            combobox_Uprawnienia.MaxDropDownItems = 3;
-            combobox_Uprawnienia.Name = "combobox_Uprawnienia";
-            combobox_Uprawnienia.Size = new System.Drawing.Size(155, 21);
-            combobox_Uprawnienia.TabIndex = 11;
+            this.cbox_Uprawnienia.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cbox_Uprawnienia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbox_Uprawnienia.FormattingEnabled = true;
+            this.cbox_Uprawnienia.Location = new System.Drawing.Point(187, 127);
+            this.cbox_Uprawnienia.MaxDropDownItems = 3;
+            this.cbox_Uprawnienia.Name = "cbox_Uprawnienia";
+            this.cbox_Uprawnienia.Size = new System.Drawing.Size(155, 21);
+            this.cbox_Uprawnienia.TabIndex = 11;
+            this.cbox_Uprawnienia.SelectedIndexChanged += new System.EventHandler(this.cbox_Uprawnienia_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -207,7 +208,7 @@
             this.Controls.Add(this.usun_but);
             this.Controls.Add(this.dodaj_but);
             this.Controls.Add(this.button1);
-            this.Controls.Add(combobox_Uprawnienia);
+            this.Controls.Add(this.cbox_Uprawnienia);
             this.Controls.Add(this.txtbox_info);
             this.Controls.Add(this.txtbox_Haslo);
             this.Controls.Add(this.txtbox_login);
@@ -246,5 +247,6 @@
         private System.Windows.Forms.Button usun_but;
         private System.Windows.Forms.Button wyszukaj_but;
         private System.Windows.Forms.Button zapisz_but;
+        private System.Windows.Forms.ComboBox cbox_Uprawnienia;
     }
 }
