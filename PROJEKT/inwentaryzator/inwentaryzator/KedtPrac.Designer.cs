@@ -57,7 +57,6 @@
             this.cbox_Uprawnienia.Name = "cbox_Uprawnienia";
             this.cbox_Uprawnienia.Size = new System.Drawing.Size(155, 21);
             this.cbox_Uprawnienia.TabIndex = 11;
-            this.cbox_Uprawnienia.SelectedIndexChanged += new System.EventHandler(this.cbox_Uprawnienia_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -169,6 +168,7 @@
             this.dodaj_but.TabIndex = 13;
             this.dodaj_but.Text = "Dodaj";
             this.dodaj_but.UseVisualStyleBackColor = true;
+            this.dodaj_but.Click += new System.EventHandler(this.dodaj_but_Click);
             // 
             // usun_but
             // 
@@ -178,6 +178,7 @@
             this.usun_but.TabIndex = 14;
             this.usun_but.Text = "Usuń";
             this.usun_but.UseVisualStyleBackColor = true;
+            this.usun_but.Click += new System.EventHandler(this.usun_but_Click);
             // 
             // wyszukaj_but
             // 
