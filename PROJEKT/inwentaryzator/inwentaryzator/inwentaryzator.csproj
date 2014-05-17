@@ -52,6 +52,12 @@
     <Compile Include="KedtPrac.Designer.cs">
       <DependentUpon>KedtPrac.cs</DependentUpon>
     </Compile>
+    <Compile Include="KedtProdukt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KedtProdukt.Designer.cs">
+      <DependentUpon>KedtProdukt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logowanie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     </Compile>
     <EmbeddedResource Include="KedtPrac.resx">
       <DependentUpon>KedtPrac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KedtProdukt.resx">
+      <DependentUpon>KedtProdukt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Logowanie.resx">
       <DependentUpon>Logowanie.cs</DependentUpon>
