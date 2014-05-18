@@ -25,26 +25,10 @@ namespace inwentaryzator
         public string find_ean;
         //wczytanie bazy z pliku
         public XDocument xml = XDocument.Load(@".\inwentaryzator\\data\\baza.xml");
-        //lista obiektów klasy Produkt
-        List<cProdukt> lista_produktow = (
-                from produkt in (XDocument.Load(@".\inwentaryzator\\data\\baza.xml")).Root.Elements("PRODUKT")
-                select new cProdukt(
-                    produkt.Attribute("EAN13").Value,
-                    produkt.Element("NAZWA").Value,
-                    produkt.Element("OPIS").Value,
-                    int.Parse(produkt.Element("ILOSC").Value),
-                    float.Parse(produkt.Element("CENA").Value)
-                    )
-                ).ToList<cProdukt>();
-        
-        
-
-        
+       
         /// <summary>
         /// Metoda do przycisku wyloguj
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void wyloguj_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -53,8 +37,6 @@ namespace inwentaryzator
         /// <summary>
         /// Metoda do przycisku wyszukaj
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void but_wyszukaj_Click(object sender, EventArgs e)
         {
             //wczytanie danych do listy
