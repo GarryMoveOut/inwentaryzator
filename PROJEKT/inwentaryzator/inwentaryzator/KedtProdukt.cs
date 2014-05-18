@@ -85,10 +85,15 @@ namespace inwentaryzator
                 else
                 {
                     //wyszukanie i zmienienie elementu
-                    var produkty = xmlProdukty.Root.Elements("PRODUKT").Where(
-                                produkt => produkt.Attribute("EAN13").Value == find_ean);
-                    if (produkty.Any())
-                        produkty.First().Element("ILOSC").Value = Convert.ToString(wIlosc);
+                    var zmieniany_produkt = xmlProdukty.Root.Elements("PRODUKT").Where(
+                                  produkt => produkt.Attribute("EAN13").Value == find_ean);
+                    if (zmieniany_produkt.Any())
+                    {
+                        zmieniany_produkt.First().Element("NAZWA").Value = txtbox_nazwa.Text;
+                        zmieniany_produkt.First().Element("OPIS").Value = txtbox_opis.Text;
+                        zmieniany_produkt.First().Element("ILOSC").Value = txtbox_ilosc.Text;
+                        zmieniany_produkt.First().Element("CENA").Value = txtbox_cena.Text;
+                    }
 
                     //zapis zmian
                     xmlProdukty.Save(baza);
