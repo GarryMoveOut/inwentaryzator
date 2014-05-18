@@ -53,6 +53,7 @@
             this.BUT_usnProd.TabIndex = 0;
             this.BUT_usnProd.Text = "Usuń produkt";
             this.BUT_usnProd.UseVisualStyleBackColor = true;
+            this.BUT_usnProd.Click += new System.EventHandler(this.BUT_usnProd_Click);
             // 
             // BUT_dodajProd
             // 
@@ -162,6 +163,7 @@
             this.BUT_zapisz.TabIndex = 13;
             this.BUT_zapisz.Text = "Zapisz";
             this.BUT_zapisz.UseVisualStyleBackColor = true;
+            this.BUT_zapisz.Click += new System.EventHandler(this.BUT_zapisz_Click);
             // 
             // BUT_wstecz
             // 

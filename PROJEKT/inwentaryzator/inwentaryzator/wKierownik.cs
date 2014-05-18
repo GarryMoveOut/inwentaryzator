@@ -25,7 +25,8 @@ namespace inwentaryzator
 
         private void but_edt_prod_Click(object sender, EventArgs e)
         {
-
+            KedtProdukt a = new KedtProdukt();
+            a.ShowDialog();
         }
 
         private void but_wyloguj_Click(object sender, EventArgs e)
