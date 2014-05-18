@@ -63,6 +63,7 @@
             this.BUT_dodajProd.TabIndex = 1;
             this.BUT_dodajProd.Text = "Dodaj produkt";
             this.BUT_dodajProd.UseVisualStyleBackColor = true;
+            this.BUT_dodajProd.Click += new System.EventHandler(this.BUT_dodajProd_Click);
             // 
             // txtbox_ean
             // 
