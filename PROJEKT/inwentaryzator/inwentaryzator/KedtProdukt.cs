@@ -145,7 +145,7 @@ namespace inwentaryzator
                 MessageBox.Show("Pole EAN13 nie może być puste.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 poprawny_formularz = false;
             }
-            if (string.IsNullOrWhiteSpace(nCena) || 0 < Convert.ToDouble(nCena))
+            if (string.IsNullOrWhiteSpace(nCena) || 0 > double.Parse(nCena))
             {
                 MessageBox.Show("Pole cena nie może być puste lub ujemne.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 poprawny_formularz = false;
@@ -168,7 +168,7 @@ namespace inwentaryzator
 
             if (poprawny_formularz == true && czy_istnieje == false)
             {
-                xmlProdukty.Root.Add(new XElement("UZYTKOWNIK",
+                xmlProdukty.Root.Add(new XElement("PRODUKT",
                     new XAttribute("EAN13", nEAN),
                     new XElement("NAZWA", nNazwa),
                     new XElement("OPIS", nOpis),
