@@ -16,5 +16,13 @@ namespace inwentaryzator
         {
             InitializeComponent();
         }
+
+        //
+        //Przycisk wyloguj
+        //
+        private void but_wyloguj_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

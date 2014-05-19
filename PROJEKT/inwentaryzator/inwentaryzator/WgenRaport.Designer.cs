@@ -79,6 +79,7 @@
             this.but_wyloguj.TabIndex = 4;
             this.but_wyloguj.Text = "Wyloguj";
             this.but_wyloguj.UseVisualStyleBackColor = true;
+            this.but_wyloguj.Click += new System.EventHandler(this.but_wyloguj_Click);
             // 
             // WgenRaport
             // 
