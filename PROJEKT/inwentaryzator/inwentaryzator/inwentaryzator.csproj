@@ -72,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WgenRaport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WgenRaport.Designer.cs">
+      <DependentUpon>WgenRaport.cs</DependentUpon>
+    </Compile>
     <Compile Include="wKierownik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WgenRaport.resx">
+      <DependentUpon>WgenRaport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="wKierownik.resx">
       <DependentUpon>wKierownik.cs</DependentUpon>
     </EmbeddedResource>

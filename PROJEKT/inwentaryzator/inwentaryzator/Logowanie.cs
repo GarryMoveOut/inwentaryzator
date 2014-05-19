@@ -61,19 +61,26 @@ namespace inwentaryzator
                     switch (oPracownik.uprawnienia)
                     {
                         case "pracownik":
+                            //Utworzenie i otwarcie okna pracownika
                             pracownik a = new pracownik();
                             a.ShowDialog();
+
                             textbox_login.Text = null;
                             textbox_haslo.Text = null;
                             break;
                         case "kierownik":
+                            //Utworzenie i otwarcie okna wyboru kierownika
                             wKierownik b = new wKierownik();
                             b.ShowDialog();
+
                             textbox_login.Text = null;
                             textbox_haslo.Text = null;
                             break;
                         case "wlasciciel":
-                            MessageBox.Show("Wlasciciel");
+                            //Utworzenie i otwarcie okna właściciela 
+                            WgenRaport c = new WgenRaport();
+                            c.ShowDialog();
+
                             textbox_login.Text = null;
                             textbox_haslo.Text = null;
                             break;

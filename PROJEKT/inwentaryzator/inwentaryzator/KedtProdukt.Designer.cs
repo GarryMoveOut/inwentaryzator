@@ -199,7 +199,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "KedtProdukt";
-            this.Text = "KedtProdukt";
+            this.Text = "Inwentaryzator: Kierownik: Edycja produktu";
             this.ResumeLayout(false);
             this.PerformLayout();
 
