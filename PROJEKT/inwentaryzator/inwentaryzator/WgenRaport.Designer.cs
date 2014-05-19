@@ -77,7 +77,7 @@
             this.but_wyloguj.Name = "but_wyloguj";
             this.but_wyloguj.Size = new System.Drawing.Size(95, 35);
             this.but_wyloguj.TabIndex = 4;
-            this.but_wyloguj.Text = "Wyloguj";
+            this.but_wyloguj.Text = "WYLOGUJ";
             this.but_wyloguj.UseVisualStyleBackColor = true;
             this.but_wyloguj.Click += new System.EventHandler(this.but_wyloguj_Click);
             // 
