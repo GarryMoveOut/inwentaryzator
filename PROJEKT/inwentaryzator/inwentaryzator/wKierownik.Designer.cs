@@ -72,6 +72,7 @@
             this.Controls.Add(this.but_wyloguj);
             this.Controls.Add(this.but_edt_prod);
             this.Controls.Add(this.but_edt_pracownikow);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "wKierownik";

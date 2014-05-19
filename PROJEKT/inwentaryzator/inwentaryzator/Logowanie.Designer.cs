@@ -102,6 +102,7 @@
             this.Controls.Add(this.textbox_haslo);
             this.Controls.Add(this.textbox_login);
             this.Controls.Add(this.button_login);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Logowanie";

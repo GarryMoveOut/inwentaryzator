@@ -92,6 +92,7 @@
             this.Controls.Add(this.but_wysRaport);
             this.Controls.Add(this.combox_raport);
             this.Controls.Add(this.label_raport);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WgenRaport";

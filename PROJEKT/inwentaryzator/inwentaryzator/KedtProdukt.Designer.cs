@@ -196,6 +196,7 @@
             this.Controls.Add(this.txtbox_ean);
             this.Controls.Add(this.BUT_dodajProd);
             this.Controls.Add(this.BUT_usnProd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "KedtProdukt";
