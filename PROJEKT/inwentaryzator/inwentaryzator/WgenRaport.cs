@@ -99,8 +99,9 @@ namespace inwentaryzator
                 //Wybranie miejsca zapisania
                 string nazwa;
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                saveFileDialog1.InitialDirectory = @"C:\";
-                saveFileDialog1.Title = "Eksportowanie raportu XML";
+                saveFileDialog1.InitialDirectory = @"C:\";              //początkowa ścieżka zapisu
+                saveFileDialog1.AddExtension = true;                    //automatyczne dodawanie rozszerzenia
+                saveFileDialog1.Title = "Eksportowanie raportu XML";    //Tytuł okna zapisu
                 //saveFileDialog1.CheckFileExists = true;
                 saveFileDialog1.CheckPathExists = true;
                 saveFileDialog1.DefaultExt = "xml";
