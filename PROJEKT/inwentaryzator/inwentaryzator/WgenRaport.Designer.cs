@@ -70,6 +70,7 @@
             this.but_eksportXML.TabIndex = 3;
             this.but_eksportXML.Text = "Eksportuj do XML";
             this.but_eksportXML.UseVisualStyleBackColor = true;
+            this.but_eksportXML.Click += new System.EventHandler(this.but_eksportXML_Click);
             // 
             // but_wyloguj
             // 
