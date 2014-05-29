@@ -2,16 +2,130 @@
 <!--Lista produktów-->
 <!--CENY MUSZĄ BYĆ Z PRZECINKIEM-->
 <PRODUKTY>
-  <PRODUKT EAN13="4789632487123">
-    <NAZWA>Nazwa testowa</NAZWA>
-    <OPIS>Jest to rekord testowy</OPIS>
-    <ILOSC>14</ILOSC>
-    <CENA>13,59</CENA>
-  </PRODUKT>
   <PRODUKT EAN13="4786214789321">
     <NAZWA>Zeszyt A5 60s k</NAZWA>
     <OPIS>Zeszyt formatu A5 w kratkę 60 stron</OPIS>
-    <ILOSC>7</ILOSC>
+    <ILOSC>10</ILOSC>
     <CENA>2,5</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4789644487123">
+    <NAZWA>Notes</NAZWA>
+    <OPIS>Notes 160 stron</OPIS>
+    <ILOSC>15</ILOSC>
+    <CENA>29,59</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4786215555321">
+    <NAZWA>Blok A4</NAZWA>
+    <OPIS>Blok A4 60 stron</OPIS>
+    <ILOSC>98</ILOSC>
+    <CENA>7,2</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4788632487000">
+    <NAZWA>Teczka</NAZWA>
+    <OPIS>Teczka z gumka</OPIS>
+    <ILOSC>24</ILOSC>
+    <CENA>1,85</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4781114789325">
+    <NAZWA>Pineski</NAZWA>
+    <OPIS>Pineski 45 sztuk</OPIS>
+    <ILOSC>140</ILOSC>
+    <CENA>4,52</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4789632487124">
+    <NAZWA>Dlugopis n.</NAZWA>
+    <OPIS>Dlugopis nniebieski</OPIS>
+    <ILOSC>0</ILOSC>
+    <CENA>2,36</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4786214789320">
+    <NAZWA>Długopis cz.</NAZWA>
+    <OPIS>Długopis czarny</OPIS>
+    <ILOSC>35</ILOSC>
+    <CENA>2,74</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4789632227123">
+    <NAZWA>Gumka</NAZWA>
+    <OPIS>Gumka "Myszka"</OPIS>
+    <ILOSC>1</ILOSC>
+    <CENA>1,59</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4786215669321">
+    <NAZWA>Korektor</NAZWA>
+    <OPIS>Korektor w plynie</OPIS>
+    <ILOSC>3</ILOSC>
+    <CENA>7,54</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4789632400023">
+    <NAZWA>Rysiki</NAZWA>
+    <OPIS>Rysiki wymienne</OPIS>
+    <ILOSC>45</ILOSC>
+    <CENA>0,59</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4700014789321">
+    <NAZWA>Kalendarz</NAZWA>
+    <OPIS>Kalendarz 2015 na sciane</OPIS>
+    <ILOSC>0</ILOSC>
+    <CENA>12,5</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="6889632487123">
+    <NAZWA>Mazak Czarny</NAZWA>
+    <OPIS>Mazak czarny do plyt</OPIS>
+    <ILOSC>157</ILOSC>
+    <CENA>3,59</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="8786214789321">
+    <NAZWA>Mazak Czerwony</NAZWA>
+    <OPIS>Mazak czerwony do plyt</OPIS>
+    <ILOSC>4</ILOSC>
+    <CENA>4,5</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4788800487123">
+    <NAZWA>Plyta CD</NAZWA>
+    <OPIS>Plyta CD SONY</OPIS>
+    <ILOSC>325</ILOSC>
+    <CENA>1,59</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="4780010449321">
+    <NAZWA>Plyta CD</NAZWA>
+    <OPIS>Plyta CD OMEGA</OPIS>
+    <ILOSC>415</ILOSC>
+    <CENA>1,95</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="3669632487123">
+    <NAZWA>Plyta DVD</NAZWA>
+    <OPIS>Plyta DVD-RW SONY</OPIS>
+    <ILOSC>314</ILOSC>
+    <CENA>3,59</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="7776214789321">
+    <NAZWA>Plyta DVD</NAZWA>
+    <OPIS>Plyta DVD-R SONY</OPIS>
+    <ILOSC>210</ILOSC>
+    <CENA>2,59</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="7006214789321">
+    <NAZWA>Plyta DVD</NAZWA>
+    <OPIS>Plyta DVD+R SONY</OPIS>
+    <ILOSC>298</ILOSC>
+    <CENA>3,52</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="7111214789321">
+    <NAZWA>Myszka</NAZWA>
+    <OPIS>Myszka do komputera optyczna</OPIS>
+    <ILOSC>15</ILOSC>
+    <CENA>37,25</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="7888214780021">
+    <NAZWA>Myszka</NAZWA>
+    <OPIS>Myszka do komputera laserowa</OPIS>
+    <ILOSC>36</ILOSC>
+    <CENA>57,99</CENA>
+  </PRODUKT>
+  <PRODUKT EAN13="1479348913278">
+    <NAZWA>Nokia Lumia 800</NAZWA>
+    <OPIS>Niebieska</OPIS>
+    <ILOSC>2</ILOSC>
+    <CENA>19,99</CENA>
   </PRODUKT>
 </PRODUKTY>
