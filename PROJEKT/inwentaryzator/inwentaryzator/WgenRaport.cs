@@ -50,7 +50,7 @@ namespace inwentaryzator
                     rap_wszystkich_produktow();
                     break;
                 case 1:
-                    
+                    rap_brakujacych_produktow();
                     break;
                 case 2:
                     rap_wszystkich_pracownikow();
@@ -96,6 +96,69 @@ namespace inwentaryzator
                                 new XElement("ILOSC", produkt.Ilosc),
                                 new XElement("CENA",produkt.Cena)
                                 )
+                        )
+                    );
+
+                //Wybranie miejsca zapisania
+                string nazwa;
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.InitialDirectory = @"C:\";              //początkowa ścieżka zapisu
+                saveFileDialog1.AddExtension = true;                    //automatyczne dodawanie rozszerzenia
+                saveFileDialog1.Title = "Eksportowanie raportu XML";    //Tytuł okna zapisu
+                //saveFileDialog1.CheckFileExists = true;
+                saveFileDialog1.CheckPathExists = true;
+                saveFileDialog1.DefaultExt = "xml";
+                saveFileDialog1.Filter = "eXtensible Markup Language (*.xml)|*.xml";
+                saveFileDialog1.FilterIndex = 1;
+                saveFileDialog1.RestoreDirectory = true;
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    nazwa = saveFileDialog1.FileName;
+                    raport_xml.Save(nazwa);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Błąd wczytywania plików");
+            }
+        }
+        //
+        //metoda do tworzenia i zapisywania raportu brakujących produktów
+        //
+        private void rap_brakujacych_produktow()
+        {
+            try
+            {
+                //Plik z produktami
+                XDocument xml = XDocument.Load(@".\inwentaryzator\\data\\baza.xml");
+
+                //Utworzenie i wczytanie do listy produktów
+                List<cProdukt> lista_produktow = (
+                    from produkt in xml.Root.Elements("PRODUKT")
+                    select new cProdukt(
+                        produkt.Attribute("EAN13").Value,
+                        produkt.Element("NAZWA").Value,
+                        produkt.Element("OPIS").Value,
+                        int.Parse(produkt.Element("ILOSC").Value),
+                        float.Parse(produkt.Element("CENA").Value)
+                        )
+                    ).ToList<cProdukt>().FindAll(produkt => produkt.Ilosc.Equals(0));
+
+                //Zczytanie produktów z listy do pliku xml
+                XDocument raport_xml = new XDocument(
+                    new XDeclaration("1.0", "utf-8", "yes"),
+                    new XComment("RAPORT: SPIS WSZYSTKICH PRODUKTÓW"),
+                    new XElement("PRODUKTY",
+                        from produkt in lista_produktow
+                        orderby produkt.EAN13
+                        select new XElement("PRODUKT",
+                            new XAttribute("EAN13", produkt.EAN13),
+                            new XElement("NAZWA", produkt.Nazwa),
+                            new XElement("OPIS", produkt.Opis),
+                            new XElement("ILOSC", produkt.Ilosc),
+                            new XElement("CENA", produkt.Cena)
+                            )
                         )
                     );
 
