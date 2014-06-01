@@ -47,13 +47,13 @@
   <PRODUKT EAN13="4789632227123">
     <NAZWA>Gumka</NAZWA>
     <OPIS>Gumka "Myszka"</OPIS>
-    <ILOSC>1</ILOSC>
+    <ILOSC>0</ILOSC>
     <CENA>1,59</CENA>
   </PRODUKT>
   <PRODUKT EAN13="4786215669321">
     <NAZWA>Korektor</NAZWA>
     <OPIS>Korektor w plynie</OPIS>
-    <ILOSC>3</ILOSC>
+    <ILOSC>0</ILOSC>
     <CENA>7,54</CENA>
   </PRODUKT>
   <PRODUKT EAN13="4789632400023">

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KedtProdukt));
             this.BUT_usnProd = new System.Windows.Forms.Button();
             this.BUT_dodajProd = new System.Windows.Forms.Button();
             this.txtbox_ean = new System.Windows.Forms.TextBox();
@@ -197,6 +198,7 @@
             this.Controls.Add(this.BUT_dodajProd);
             this.Controls.Add(this.BUT_usnProd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "KedtProdukt";

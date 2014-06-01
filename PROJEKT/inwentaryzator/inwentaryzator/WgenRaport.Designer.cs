@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WgenRaport));
             this.label_raport = new System.Windows.Forms.Label();
             this.combox_raport = new System.Windows.Forms.ComboBox();
             this.but_wysRaport = new System.Windows.Forms.Button();
@@ -95,6 +96,7 @@
             this.Controls.Add(this.combox_raport);
             this.Controls.Add(this.label_raport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WgenRaport";

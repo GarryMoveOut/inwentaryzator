@@ -145,6 +145,14 @@ namespace inwentaryzator
             nIlosc = txtbox_ilosc.Text;
             nOpis = txtbox_opis.Text;
 
+           
+            var count = nEAN.Count(Char.IsDigit);//liczenie cyfr w kodzie EAN
+            if(count!=13)
+            {
+                MessageBox.Show("Pole EAN13 zawiera błędny kod.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                poprawny_formularz = false;
+            }
+            
             if (string.IsNullOrWhiteSpace(nEAN))
             {
                 MessageBox.Show("Pole EAN13 nie może być puste.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

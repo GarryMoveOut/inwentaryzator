@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Logowanie));
             this.button_login = new System.Windows.Forms.Button();
             this.textbox_login = new System.Windows.Forms.TextBox();
             this.textbox_haslo = new System.Windows.Forms.TextBox();
@@ -103,6 +104,7 @@
             this.Controls.Add(this.textbox_login);
             this.Controls.Add(this.button_login);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Logowanie";
