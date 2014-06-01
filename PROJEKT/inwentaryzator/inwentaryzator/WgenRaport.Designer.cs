@@ -61,6 +61,7 @@
             this.but_wysRaport.TabIndex = 2;
             this.but_wysRaport.Text = "Wyświetl";
             this.but_wysRaport.UseVisualStyleBackColor = true;
+            this.but_wysRaport.Click += new System.EventHandler(this.but_wysRaport_Click);
             // 
             // but_eksportXML
             // 

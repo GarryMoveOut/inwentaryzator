@@ -84,6 +84,12 @@
     <Compile Include="wKierownik.Designer.cs">
       <DependentUpon>wKierownik.cs</DependentUpon>
     </Compile>
+    <Compile Include="wRaport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wRaport.Designer.cs">
+      <DependentUpon>wRaport.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="KedtPrac.resx">
       <DependentUpon>KedtPrac.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="wKierownik.resx">
       <DependentUpon>wKierownik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wRaport.resx">
+      <DependentUpon>wRaport.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

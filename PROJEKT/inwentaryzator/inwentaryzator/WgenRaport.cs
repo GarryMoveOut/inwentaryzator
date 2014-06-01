@@ -251,5 +251,11 @@ namespace inwentaryzator
                 MessageBox.Show("Błąd wczytywania plików");
             }
         }
+
+        private void but_wysRaport_Click(object sender, EventArgs e)
+        {
+            wRaport a = new wRaport(combox_raport.SelectedIndex);
+            a.ShowDialog();
+        }
     }
 }
