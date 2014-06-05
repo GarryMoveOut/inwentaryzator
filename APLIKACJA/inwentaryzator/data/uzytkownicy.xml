@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Lista produktow-->
+<UZYTKOWNICY>
+  <UZYTKOWNIK LOGIN="jkowalski">
+    <HASLO>asdf</HASLO>
+    <UPRAWNIENIA>kierownik</UPRAWNIENIA>
+    <IMIE>Jan</IMIE>
+    <NAZWISKO>Kowaski</NAZWISKO>
+    <INFORMACJE>Zatrudniony od maja 2010</INFORMACJE>
+  </UZYTKOWNIK>
+  <UZYTKOWNIK LOGIN="pbudynek">
+    <HASLO>zxcv</HASLO>
+    <UPRAWNIENIA>wlasciciel</UPRAWNIENIA>
+    <IMIE>Pawel</IMIE>
+    <NAZWISKO>Budynek</NAZWISKO>
+    <INFORMACJE>Zatrudniony od maja 2010</INFORMACJE>
+  </UZYTKOWNIK>
+  <UZYTKOWNIK LOGIN="anowak">
+    <HASLO>qwer</HASLO>
+    <UPRAWNIENIA>pracownik</UPRAWNIENIA>
+    <IMIE>Adam</IMIE>
+    <NAZWISKO>Nowak</NAZWISKO>
+    <INFORMACJE>Zatrudniony</INFORMACJE>
+  </UZYTKOWNIK>
+</UZYTKOWNICY>
