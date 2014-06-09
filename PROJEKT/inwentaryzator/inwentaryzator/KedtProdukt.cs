@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -79,9 +80,16 @@ namespace inwentaryzator
                 wIlosc = Convert.ToInt32(txtbox_ilosc.Text);
                 nCena = Convert.ToDouble(txtbox_cena.Text);
                 //nCena = System.Math.Round(nCena, 2);
-
-
                 find_ean = txtbox_ean.Text;
+
+                //Sprawdzanie znaków specjalnych
+                var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+                if(!regexItem.IsMatch(txtbox_nazwa.Text) || !regexItem.IsMatch(txtbox_opis.Text))
+                {
+                    blad_form = true;
+                }
+
+                //Sprawdzanie czy pole puste lub znaki białe
                 if (string.IsNullOrWhiteSpace(txtbox_nazwa.Text))
                 {
                     blad_form = true;
@@ -143,64 +151,83 @@ namespace inwentaryzator
         //
         private void BUT_dodajProd_Click(object sender, EventArgs e)
         {
-            //Deklaracja nowych danych produktu.
-            string nEAN, nCena, nNazwa, nIlosc, nOpis;
-            bool poprawny_formularz = true;
-            bool czy_istnieje = false;
+            try
+            {
+                //Deklaracja nowych danych produktu.
+                string nEAN, nCena, nNazwa, nIlosc, nOpis;
+                bool poprawny_formularz = true;
+                bool czy_istnieje = false;
 
-            nEAN = txtbox_ean.Text;
-            nCena = txtbox_cena.Text;
-            nNazwa = txtbox_nazwa.Text;
-            nIlosc = txtbox_ilosc.Text;
-            nOpis = txtbox_opis.Text;
-
-           
-            var count = nEAN.Count(Char.IsDigit);//liczenie cyfr w kodzie EAN
-            if(count!=13)
-            {
-                MessageBox.Show("Pole EAN13 zawiera błędny kod.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                poprawny_formularz = false;
-            }
-            
-            if (string.IsNullOrWhiteSpace(nEAN))
-            {
-                MessageBox.Show("Pole EAN13 nie może być puste.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                poprawny_formularz = false;
-            }
-            if (string.IsNullOrWhiteSpace(nCena) || 0 > double.Parse(nCena))
-            {
-                MessageBox.Show("Pole cena nie może być puste lub ujemne.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                poprawny_formularz = false;
-            }
-            if (string.IsNullOrWhiteSpace(nNazwa))
-            {
-                MessageBox.Show("Pole nazwa nie może być puste.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                poprawny_formularz = false;
-            }
+                nEAN = txtbox_ean.Text;
+                nCena = txtbox_cena.Text;
+                nNazwa = txtbox_nazwa.Text;
+                nIlosc = txtbox_ilosc.Text;
+                nOpis = txtbox_opis.Text;
 
 
-            //czy podany login już istnieje w bazie
-            var dubel = xmlProdukty.Root.Elements("PRODUKT").Where(
-                                   produkt => produkt.Attribute("EAN13").Value == nEAN);
-            if (dubel.Any())
-            {
-                czy_istnieje = true;
-                MessageBox.Show("Produkt o podanym kodzie EAN13 już istnieje", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+                var count = nEAN.Count(Char.IsDigit);//liczenie cyfr w kodzie EAN
+                if (count != 13)
+                {
+                    MessageBox.Show("Pole EAN13 zawiera błędny kod.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    poprawny_formularz = false;
+                }
 
-            if (poprawny_formularz == true && czy_istnieje == false)
+                if (string.IsNullOrWhiteSpace(nEAN))
+                {
+                    MessageBox.Show("Pole EAN13 nie może być puste.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    poprawny_formularz = false;
+                }
+                if (string.IsNullOrWhiteSpace(nCena) || 0 > double.Parse(nCena))
+                {
+                    MessageBox.Show("Pole cena nie może być puste lub ujemne.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    poprawny_formularz = false;
+                }
+                if (string.IsNullOrWhiteSpace(nNazwa))
+                {
+                    MessageBox.Show("Pole nazwa nie może być puste.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    poprawny_formularz = false;
+                }
+                if (Convert.ToDouble(nIlosc) < 0)
+                {
+                    MessageBox.Show("Pole ilość nie może być ujemna.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    poprawny_formularz = false;
+                }
+                //Sprawdzanie znaków specjalnych
+                var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+                if (!regexItem.IsMatch(txtbox_nazwa.Text) || !regexItem.IsMatch(txtbox_opis.Text))
+                {
+                    MessageBox.Show("Pole nazwa posiada znaki specjalne", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    poprawny_formularz = false;
+                }
+
+
+                //czy podany login już istnieje w bazie
+                var dubel = xmlProdukty.Root.Elements("PRODUKT").Where(
+                                       produkt => produkt.Attribute("EAN13").Value == nEAN);
+                if (dubel.Any())
+                {
+                    czy_istnieje = true;
+                    MessageBox.Show("Produkt o podanym kodzie EAN13 już istnieje", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+                if (poprawny_formularz == true && czy_istnieje == false)
+                {
+                    xmlProdukty.Root.Add(new XElement("PRODUKT",
+                        new XAttribute("EAN13", nEAN),
+                        new XElement("NAZWA", nNazwa),
+                        new XElement("OPIS", nOpis),
+                        new XElement("ILOSC", nIlosc),
+                        new XElement("CENA", nCena))
+                       );
+                    xmlProdukty.Save(baza);
+                    MessageBox.Show("Produkt został zapisany", "Dodano");
+                    //wyczyszczenie formularza
+                    ClearTextBoxes(this);
+                }
+            }
+            catch
             {
-                xmlProdukty.Root.Add(new XElement("PRODUKT",
-                    new XAttribute("EAN13", nEAN),
-                    new XElement("NAZWA", nNazwa),
-                    new XElement("OPIS", nOpis),
-                    new XElement("ILOSC", nIlosc),
-                    new XElement("CENA", nCena))
-                   );
-                xmlProdukty.Save(baza);
-                MessageBox.Show("Produkt został zapisany", "Dodano");
-                //wyczyszczenie formularza
-                ClearTextBoxes(this);
+                MessageBox.Show("Błąd formularza", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
         /// <summary>

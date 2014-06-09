@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -83,6 +84,20 @@ namespace inwentaryzator
             nInformacje = txtbox_info.Text;
             nUprawnienia = cbox_Uprawnienia.Text;
             nLogin = txtbox_login.Text;
+
+            //Sprawdzanie znaków specjalnych
+            var regexItem = new Regex("^[a-zA-Z ]*$");
+            var regexItem2 = new Regex("^[a-zA-Z0-9 ]*$");
+            if (!regexItem.IsMatch(txtbox_Haslo.Text) || !regexItem.IsMatch(txtbox_info.Text))
+            {
+                MessageBox.Show("Błąd formularza", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                poprawny_formularz = false;
+            }
+            if (!regexItem.IsMatch(txtbox_Imie.Text) || !regexItem.IsMatch(txtbox_Nazwisko.Text) || !regexItem.IsMatch(txtbox_login.Text))
+            {
+                MessageBox.Show("Błąd formularza", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                poprawny_formularz = false;
+            }
 
             if (string.IsNullOrWhiteSpace(nImie))
             {
@@ -175,6 +190,19 @@ namespace inwentaryzator
             nUprawnienia = cbox_Uprawnienia.Text;
             nLogin = txtbox_login.Text;
 
+            //Sprawdzanie znaków specjalnych
+            var regexItem = new Regex("^[a-zA-Z ]*$");
+            var regexItem2 = new Regex("^[a-zA-Z0-9 ]*$");
+            if (!regexItem.IsMatch(txtbox_Haslo.Text) || !regexItem.IsMatch(txtbox_info.Text))
+            {
+                MessageBox.Show("Błąd formularza", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                poprawny_formularz = false;
+            }
+            if (!regexItem.IsMatch(txtbox_Imie.Text) || !regexItem.IsMatch(txtbox_Nazwisko.Text) || !regexItem.IsMatch(txtbox_login.Text))
+            {
+                MessageBox.Show("Błąd formularza", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                poprawny_formularz = false;
+            }
             if (string.IsNullOrWhiteSpace(nImie))
             {
                 MessageBox.Show("Pole Imie nie może być puste, wpisz imię.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
