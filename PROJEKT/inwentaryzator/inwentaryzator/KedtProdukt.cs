@@ -74,13 +74,22 @@ namespace inwentaryzator
             {
                 //Zmienna do której przepisywana jest wartość 
                 int wIlosc;
+                double nCena;
+                bool blad_form = false;
                 wIlosc = Convert.ToInt32(txtbox_ilosc.Text);
+                nCena = Convert.ToDouble(txtbox_cena.Text);
+                //nCena = System.Math.Round(nCena, 2);
+
 
                 find_ean = txtbox_ean.Text;
-
-                if (wIlosc < 0)
+                if (string.IsNullOrWhiteSpace(txtbox_nazwa.Text))
                 {
-                    MessageBox.Show("Błędna ilość", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    blad_form = true;
+                }
+
+                if (wIlosc < 0 || nCena < 0 || blad_form == true)
+                {
+                    MessageBox.Show("Błąd w formularzu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
@@ -106,7 +115,7 @@ namespace inwentaryzator
             }
             catch
             {
-                MessageBox.Show("Nieznany błąd aplikacji", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Błąd w formularzu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
