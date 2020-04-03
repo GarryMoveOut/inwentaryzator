@@ -2,7 +2,7 @@ Inwentaryzator
 ==========
 Inżynieria oprogramowania
 
-Maria Wypyska, Damian Rychliński gr. 212B
+
 
 Aplikacja dla magazynu
 
